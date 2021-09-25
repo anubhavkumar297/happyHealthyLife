@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+ "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.happyHealthyLife.modal.Contacts" table="contact_info">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="first_name" column="first_name"></property>
+		<property name="last_name" column="last_name"></property>
+		<property name="email" column="email"></property>
+
+		<map name="phone_numbers" table="phone_numbers" cascade="all">
+			<key column="id"></key>
+			<index column="type" type="string"></index>
+			<element column="phone_number" type="string"></element>
+		</map>
+	</class>
+</hibernate-mapping>   
